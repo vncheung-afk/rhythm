@@ -1,4 +1,4 @@
-const CACHE = 'rhythm-shell-v12';
+const CACHE = 'rhythm-shell-v17';
 const SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-180.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
