@@ -140,22 +140,35 @@ header{flex:0 0 58px;height:58px}
 #todayGroups{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
 #todayGroups .group[hidden]{display:none}
 .task-note{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
-/* Insights layout fixes */
+/* Fix Insights page scrolling */
 #insightsScreen.active {
-  height: auto;
-  flex: 1 1 auto;
+  display: block;
+  height: 100%;
   min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+}
+
+#insightsScreen > .heading,
+#insightsScreen > .card {
+  flex: none;
+}
+
+#insightsScreen .review {
+  overflow: visible;
 }
 
 #insightsScreen .review[open] {
-  min-height: 0;
-  flex: 1 1 auto;
+  display: block;
+  flex: none;
 }
 
 #insightsScreen .review-body {
+  display: block;
+  overflow: visible;
   min-height: 0;
-  overflow-y: auto;
-  overscroll-behavior: contain;
 }
 
 #recapText,
@@ -164,7 +177,7 @@ header{flex:0 0 58px;height:58px}
   overflow-wrap: anywhere;
 }
 
-/* Notification fixes */
+/* Keep notifications within the screen */
 #toast {
   box-sizing: border-box;
   width: max-content;
