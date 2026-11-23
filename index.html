@@ -140,6 +140,41 @@ header{flex:0 0 58px;height:58px}
 #todayGroups{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
 #todayGroups .group[hidden]{display:none}
 .task-note{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+/* Insights layout fixes */
+#insightsScreen.active {
+  height: auto;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+#insightsScreen .review[open] {
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+#insightsScreen .review-body {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+#recapText,
+#recapSuggestions {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Notification fixes */
+#toast {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 32px);
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: center;
+  line-height: 1.45;
+  z-index: 1000;
+}
 </style></head><body><header><div class="brand">rhythm<span>.</span></div></header><main class="wrap">
 <section class="screen active" id="todayScreen"><div class="heading"><div><div class="page-subtitle" id="todayDate">Your day, at your pace</div><h1 id="todayTitle"></h1></div></div><div class="week-picker"><button id="prevWeek" aria-label="Previous week">‹</button><span id="weekRange"></span><button id="nextWeek" aria-label="Next week">›</button><button id="jumpToday">Today</button></div><div class="weekstrip" id="weekStrip" aria-label="Choose a day"></div><div class="today-content"><div class="card routine"><div class="routine-head"><div><div class="eyebrow" id="dayLabel"></div><h2 id="dayTitle"></h2></div><div class="progress"><span id="progressText"></span><div class="bar"><i id="progressBar"></i></div></div></div><div id="buildBox"></div><div id="todayGroups"></div><div id="completionFeedback" class="insight completion-feedback" hidden></div><button class="primary" id="journalButton"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3.5h9.5A1.5 1.5 0 0 1 16 5v12H6a2 2 0 0 1-2-2V5.5a2 2 0 0 1 2-2Z"/><path d="M7.5 7h5M7.5 10h5M7.5 13h3.5"/></svg> &nbsp; <span id="journalButtonLabel">Write a journal entry</span></button><div id="journalPreview"></div></div><div class="note" id="syncNote"></div></div></section>
 <section class="screen" id="insightsScreen"><div class="heading"><div><div class="page-subtitle">Notice what’s taking shape</div><h1>Insights</h1><div class="week-context" id="insightWeek"></div></div></div><div class="card"><div class="eyebrow">THIS WEEK’S COMPLETION</div><div class="completion-summary"><strong id="completionPercent">0%</strong><span>Completed tasks · <b id="completionFraction">0 / 0</b></span></div><div class="insight-progress"><i id="completionProgress"></i></div><div class="eyebrow" style="margin-top:22px">ACTIVITY BREAKDOWN</div><div id="activityBreakdown"></div></div><details class="card review"><summary class="review-summary"><span class="eyebrow">YOUR WEEKLY AI REFLECTION</span><span class="review-hint">Open recap</span></summary><div class="review-body"><div id="recapText" class="insight">Generate your recap when you’re ready. It will consider check-ins, task notes, outcome notes, and journal entries.</div><div id="recapSuggestions"></div><button class="primary" id="recapBtn"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5 11.8 8l5.7 2-5.7 1.9-1.8 5.6-1.9-5.6-5.6-1.9L8.1 8 10 2.5Z"/><path d="m16 2 .5 1.5L18 4l-1.5.5L16 6l-.5-1.5L14 4l1.5-.5L16 2Z"/></svg> &nbsp; <span id="recapButtonLabel">Generate recap with AI</span></button></div></details></section>
